@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simply Convert It</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+      background-color: #f8f9fa;
+    }
+    h1 {
+      text-align: center;
+    }
+    .converter {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .converter label {
+      display: block;
+      margin-top: 10px;
+    }
+    .converter input {
+      padding: 6px;
+      width: 100%;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Simply Convert It</h1>
+
+  <!-- CM ↔ M -->
+  <div class="converter">
+    <h2>Centimeters ↔ Meters</h2>
+    <label>Centimeters:</label>
+    <input type="number" id="cm" oninput="cmToM()" />
+    <label>Meters:</label>
+    <input type="number" id="m" oninput="mToCm()" />
+  </div>
+
+  <!-- Celsius ↔ Fahrenheit -->
+  <div class="converter">
+    <h2>Celsius ↔ Fahrenheit</h2>
+    <label>Celsius:</label>
+    <input type="number" id="celsius" oninput="cToF()" />
+    <label>Fahrenheit:</label>
+    <input type="number" id="fahrenheit" oninput="fToC()" />
+  </div>
+
+  <!-- Kilograms ↔ Pounds -->
+  <div class="converter">
+    <h2>Kilograms ↔ Pounds</h2>
+    <label>Kilograms:</label>
+    <input type="number" id="kg" oninput="kgToLb()" />
+    <label>Pounds:</label>
+    <input type="number" id="lb" oninput="lbToKg()" />
+  </div>
+
+  <!-- Liters ↔ Gallons -->
+  <div class="converter">
+    <h2>Liters ↔ Gallons</h2>
+    <label>Liters:</label>
+    <input type="number" id="liters" oninput="litersToGallons()" />
+    <label>Gallons:</label>
+    <input type="number" id="gallons" oninput="gallonsToLiters()" />
+  </div>
+
+  <!-- Kilometers ↔ Miles -->
+  <div class="converter">
+    <h2>Kilometers ↔ Miles</h2>
+    <label>Kilometers:</label>
+    <input type="number" id="km" oninput="kmToMiles()" />
+    <label>Miles:</label>
+    <input type="number" id="miles" oninput="milesToKm()" />
+  </div>
+
+  <!-- Inches ↔ Centimeters -->
+  <div class="converter">
+    <h2>Inches ↔ Centimeters</h2>
+    <label>Inches:</label>
+    <input type="number" id="inches" oninput="inchesToCm()" />
+    <label>Centimeters:</label>
+    <input type="number" id="cm2" oninput="cmToInches()" />
+  </div>
+
+  <script>
+    function cmToM() {
+      document.getElementById("m").value = (document.getElementById("cm").value / 100).toFixed(4);
+    }
+    function mToCm() {
+      document.getElementById("cm").value = (document.getElementById("m").value * 100).toFixed(2);
+    }
+
+    function cToF() {
+      document.getElementById("fahrenheit").value = (document.getElementById("celsius").value * 9 / 5 + 32).toFixed(2);
+    }
+    function fToC() {
+      document.getElementById("celsius").value = ((document.getElementById("fahrenheit").value - 32) * 5 / 9).toFixed(2);
+    }
+
+    function kgToLb() {
+      document.getElementById("lb").value = (document.getElementById("kg").value * 2.20462).toFixed(2);
+    }
+    function lbToKg() {
+      document.getElementById("kg").value = (document.getElementById("lb").value / 2.20462).toFixed(2);
+    }
+
+    function litersToGallons() {
+      document.getElementById("gallons").value = (document.getElementById("liters").value * 0.264172).toFixed(3);
+    }
+    function gallonsToLiters() {
+      document.getElementById("liters").value = (document.getElementById("gallons").value / 0.264172).toFixed(3);
+    }
+
+    function kmToMiles() {
+      document.getElementById("miles").value = (document.getElementById("km").value * 0.621371).toFixed(3);
+    }
+    function milesToKm() {
+      document.getElementById("km").value = (document.getElementById("miles").value / 0.621371).toFixed(3);
+    }
+
+    function inchesToCm() {
+      document.getElementById("cm2").value = (document.getElementById("inches").value * 2.54).toFixed(2);
+    }
+    function cmToInches() {
+      document.getElementById("inches").value = (document.getElementById("cm2").value / 2.54).toFixed(2);
+    }
+  </script>
+
+</body>
+</html>
